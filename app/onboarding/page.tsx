@@ -53,7 +53,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
       <div className="container mx-auto px-4 py-8">
         {/* Progress Bar */}
         <OnboardingProgressBar currentStep={2} totalSteps={3} />
@@ -63,7 +63,7 @@ export default function OnboardingPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-12"
+          className="mt-12 slide-in-up"
         >
           <DocumentConnectorList connectors={connectors} onToggle={handleConnectorToggle} />
         </motion.div>
@@ -73,9 +73,9 @@ export default function OnboardingPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="flex justify-center mt-12"
+          className="flex justify-center mt-12 slide-in-up"
         >
-          <Button onClick={handleContinue} disabled={!hasConnectedStorage} size="lg" className="btn-primary px-8">
+          <Button onClick={handleContinue} disabled={!hasConnectedStorage} size="lg" className="btn-primary btn-ripple hover-lift px-8">
             Continue to Dashboard
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
@@ -86,7 +86,7 @@ export default function OnboardingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-center text-sm text-gray-500 mt-4"
+            className="text-center text-sm text-slate-400 mt-4"
           >
             Connect at least one storage service to continue
           </motion.p>

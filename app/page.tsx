@@ -43,11 +43,11 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen font-montserrat">
+    <div className="min-h-screen font-montserrat bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center scroll-animate">
+          <div className="text-center scroll-animate slide-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Estate.AI
             </h1>
@@ -60,13 +60,13 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/signup">
-                <Button className="btn-primary text-lg px-8 py-4 hover-lift" size="lg">
+                <Button className="btn-primary btn-ripple text-lg px-8 py-4 hover-lift" size="lg">
                   Get Started Free
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/login">
-                <Button variant="outline" className="btn-outline text-lg px-8 py-4 hover-lift bg-transparent" size="lg">
+                <Button variant="outline" className="btn-outline btn-animated text-lg px-8 py-4 hover-lift bg-transparent" size="lg">
                   Sign In
                 </Button>
               </Link>
@@ -78,7 +78,7 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 scroll-animate">
+          <div className="text-center mb-16 scroll-animate slide-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Powerful Features</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Everything you need to analyze, manage, and optimize your real estate investments
@@ -89,11 +89,11 @@ export default function HomePage() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="card-gradient hover-lift hover-glow scroll-animate border-0"
+                className="card-gradient hover-lift hover-glow card-hover scroll-animate border-0 scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="mb-4">{feature.icon}</div>
+                  <div className="mb-4 float-animation">{feature.icon}</div>
                   <CardTitle className="text-xl font-semibold text-white">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -108,7 +108,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <Card className="card-gradient hover-glow scroll-animate border-0">
+          <Card className="card-gradient hover-glow card-hover scroll-animate border-0 slide-in-up">
             <CardContent className="text-center py-16">
               <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                 Ready to Transform Your Real Estate Business?
@@ -118,7 +118,7 @@ export default function HomePage() {
                 make smarter investments.
               </p>
               <Link href="/signup">
-                <Button className="btn-primary text-lg px-8 py-4 hover-lift" size="lg" disabled={isLoading}>
+                <Button className="btn-primary btn-ripple text-lg px-8 py-4 hover-lift" size="lg" disabled={isLoading}>
                   {isLoading ? "Loading..." : "Start Your Free Trial"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

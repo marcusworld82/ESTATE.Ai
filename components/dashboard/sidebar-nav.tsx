@@ -39,7 +39,7 @@ export function SidebarNav() {
   return (
     <div
       className={cn(
-        "flex flex-col h-full bg-black/20 backdrop-blur-xl border-r border-white/10 transition-all duration-300 relative",
+        "flex flex-col h-full bg-slate-900/80 backdrop-blur-xl border-r border-slate-600/30 transition-all duration-300 relative",
         isCollapsed ? "w-16" : "w-64",
       )}
     >
@@ -48,15 +48,15 @@ export function SidebarNav() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         variant="ghost"
         size="sm"
-        className="absolute -right-3 top-6 z-10 h-6 w-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all"
+        className="absolute -right-3 top-6 z-10 h-6 w-6 rounded-full bg-slate-700/50 backdrop-blur-sm border border-slate-600/30 text-white hover:bg-slate-600/70 transition-all btn-animated hover-lift"
       >
         {isCollapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
       </Button>
 
       {/* Logo */}
-      <div className="p-6 border-b border-white/10">
+      <div className="p-6 border-b border-slate-600/30 slide-in-left">
         <Link href="/dashboard" className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center glow-animation">
             <TrendingUp className="h-5 w-5 text-white" />
           </div>
           {!isCollapsed && <span className="text-xl font-bold text-white">Estate.AI</span>}
@@ -72,8 +72,8 @@ export function SidebarNav() {
               key={item.name}
               href={item.href}
               className={cn(
-                "flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-200 group",
-                isActive ? "bg-white/20 text-white shadow-lg" : "text-gray-300 hover:bg-white/10 hover:text-white",
+                "flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-200 group sidebar-item btn-animated hover-lift",
+                isActive ? "bg-blue-600/80 text-white shadow-lg active" : "text-gray-300 hover:bg-slate-700/50 hover:text-white",
                 isCollapsed && "justify-center",
               )}
             >
@@ -85,25 +85,25 @@ export function SidebarNav() {
       </nav>
 
       {/* Bottom Actions */}
-      <div className="p-4 border-t border-white/10 space-y-3">
+      <div className="p-4 border-t border-slate-600/30 space-y-3 slide-in-up">
         {/* Add Button */}
-        <Button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white border-0 rounded-xl h-12 font-semibold transition-all hover:scale-105">
+        <Button className="w-full btn-primary btn-ripple hover-lift rounded-xl h-12 font-semibold">
           <Plus className="h-5 w-5 mr-2" />
           {!isCollapsed && "New Analysis"}
         </Button>
 
         {/* User Profile */}
-        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 cursor-pointer hover:bg-gradient-to-r hover:from-purple-500/30 hover:to-pink-500/30 transition-all">
+        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-slate-600/30 cursor-pointer hover:bg-gradient-to-r hover:from-blue-500/30 hover:to-blue-600/30 transition-all hover-lift btn-animated">
           <Avatar className="h-8 w-8">
             <AvatarImage src="/placeholder.svg?height=32&width=32" />
-            <AvatarFallback className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold">
+            <AvatarFallback className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold">
               S
             </AvatarFallback>
           </Avatar>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-white truncate">Sarah Chen</p>
-              <p className="text-xs text-purple-200 truncate">Premium Plan</p>
+              <p className="text-xs text-blue-200 truncate">Premium Plan</p>
             </div>
           )}
         </div>

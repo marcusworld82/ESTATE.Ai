@@ -167,13 +167,13 @@ export default function ContentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between"
+          className="flex items-center justify-between slide-in-up"
         >
           <div>
             <h1 className="text-4xl font-bold text-white mb-2">AI Content & Automation</h1>
@@ -182,12 +182,12 @@ export default function ContentPage() {
           <div className="flex items-center space-x-3">
             <Button
               variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm transition-all"
+              className="btn-outline hover-lift btn-animated"
             >
               <Settings className="mr-2 h-4 w-4" />
               Settings
             </Button>
-            <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white font-semibold transition-all hover:scale-105">
+            <Button className="btn-primary btn-ripple hover-lift">
               <Plus className="mr-2 h-4 w-4" />
               New Content
             </Button>
@@ -196,22 +196,22 @@ export default function ContentPage() {
 
         {/* Content Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-black/20 backdrop-blur-xl border border-white/20 p-2 mb-8">
+          <TabsList className="grid w-full grid-cols-3 bg-slate-800/50 backdrop-blur-xl border border-slate-600/30 p-2 mb-8">
             <TabsTrigger
               value="templates"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               AI Templates
             </TabsTrigger>
             <TabsTrigger
               value="social"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               Social Automation
             </TabsTrigger>
             <TabsTrigger
               value="voice"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               Voice AI
             </TabsTrigger>
@@ -219,12 +219,12 @@ export default function ContentPage() {
 
           <TabsContent value="templates" className="space-y-8">
             {/* Search and Filters */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6 slide-in-left">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
                   placeholder="Search templates..."
-                  className="pl-12 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20 h-12 backdrop-blur-sm"
+                  className="pl-12 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 h-12 backdrop-blur-sm input-focus"
                 />
               </div>
 
@@ -236,8 +236,8 @@ export default function ContentPage() {
                     onClick={() => setActiveFilter(filter.id)}
                     className={
                       activeFilter === filter.id
-                        ? "bg-green-500 text-black hover:bg-green-600 transition-all"
-                        : "bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm transition-all"
+                        ? "bg-blue-600 text-white hover:bg-blue-700 transition-all btn-animated hover-lift"
+                        : "btn-outline hover-lift btn-animated"
                     }
                   >
                     {filter.label} ({filter.count})
@@ -254,12 +254,13 @@ export default function ContentPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  className="scale-in"
                 >
-                  <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white hover:bg-black/30 transition-all h-full">
+                  <Card className="card-dark hover-glow card-hover text-white h-full">
                     <CardHeader className="pb-4">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="p-3 bg-green-500/20 rounded-lg border border-green-500/30">{template.icon}</div>
-                        <Badge className="bg-green-500/20 text-green-400 border-green-500/30">{template.status}</Badge>
+                        <div className="p-3 bg-blue-500/20 rounded-lg border border-blue-500/30 glow-animation">{template.icon}</div>
+                        <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">{template.status}</Badge>
                       </div>
                       <CardTitle className="text-xl text-white mb-2">{template.title}</CardTitle>
                       <CardDescription className="text-white/70">{template.description}</CardDescription>
@@ -272,7 +273,7 @@ export default function ContentPage() {
                           <span className="text-white font-medium">{template.rating}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <TrendingUp className="h-4 w-4 text-green-400" />
+                          <TrendingUp className="h-4 w-4 text-blue-400" />
                           <span className="text-white">{template.uses.toLocaleString()} uses</span>
                         </div>
                         <div className="flex items-center space-x-1">
@@ -288,7 +289,7 @@ export default function ContentPage() {
                             <Badge
                               key={idx}
                               variant="outline"
-                              className="bg-white/10 text-white border-white/20 text-xs"
+                              className="bg-slate-700/50 text-white border-slate-600/30 text-xs hover:bg-slate-600/50 transition-all"
                             >
                               {feature}
                             </Badge>
@@ -296,7 +297,7 @@ export default function ContentPage() {
                         </div>
                       </div>
 
-                      <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold transition-all hover:scale-105">
+                      <Button className="w-full btn-primary btn-ripple hover-lift">
                         Use Template
                       </Button>
                     </CardContent>
@@ -308,7 +309,7 @@ export default function ContentPage() {
 
           <TabsContent value="social" className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+              <Card className="card-dark hover-glow text-white">
                 <CardHeader>
                   <CardTitle className="text-2xl text-white">Social Media Automation</CardTitle>
                   <CardDescription className="text-white/70">
@@ -317,7 +318,7 @@ export default function ContentPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center py-12">
-                    <div className="text-6xl mb-4">🚀</div>
+                    <div className="text-6xl mb-4 float-animation">🚀</div>
                     <h3 className="text-xl text-white mb-2">Coming Soon</h3>
                     <p className="text-white/70">Social media automation features are in development</p>
                   </div>
@@ -330,56 +331,56 @@ export default function ContentPage() {
             {/* Voice AI Overview Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow card-hover text-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-white/70 text-sm font-medium">Active Agents</p>
                         <p className="text-2xl font-bold text-white">3</p>
                       </div>
-                      <Mic className="h-8 w-8 text-green-400" />
+                      <Mic className="h-8 w-8 text-blue-400 float-animation" />
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow card-hover text-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-white/70 text-sm font-medium">Calls Today</p>
                         <p className="text-2xl font-bold text-white">46</p>
                       </div>
-                      <Phone className="h-8 w-8 text-blue-400" />
+                      <Phone className="h-8 w-8 text-green-400 float-animation" />
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow card-hover text-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-white/70 text-sm font-medium">Success Rate</p>
                         <p className="text-2xl font-bold text-white">84%</p>
                       </div>
-                      <TrendingUp className="h-8 w-8 text-purple-400" />
+                      <TrendingUp className="h-8 w-8 text-purple-400 float-animation" />
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow card-hover text-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-white/70 text-sm font-medium">Avg Duration</p>
                         <p className="text-2xl font-bold text-white">4.0m</p>
                       </div>
-                      <Clock className="h-8 w-8 text-orange-400" />
+                      <Clock className="h-8 w-8 text-orange-400 float-animation" />
                     </div>
                   </CardContent>
                 </Card>
@@ -389,7 +390,7 @@ export default function ContentPage() {
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Voice Agents */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow text-white">
                   <CardHeader>
                     <CardTitle className="text-lg text-white">Voice AI Agents</CardTitle>
                     <CardDescription className="text-white/70">
@@ -400,11 +401,11 @@ export default function ContentPage() {
                     {voiceAgents.map((agent) => (
                       <div
                         key={agent.id}
-                        className="flex items-center justify-between p-4 bg-white/10 border border-white/20 rounded-lg"
+                        className="flex items-center justify-between p-4 bg-slate-800/50 border border-slate-600/30 rounded-lg hover:bg-slate-700/50 transition-all hover-lift"
                       >
                         <div className="flex items-center space-x-3">
-                          <div className="p-2 bg-green-500/20 rounded-lg">
-                            <Volume2 className="h-5 w-5 text-green-400" />
+                          <div className="p-2 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                            <Volume2 className="h-5 w-5 text-blue-400" />
                           </div>
                           <div>
                             <p className="font-medium text-white">{agent.name}</p>
@@ -425,13 +426,13 @@ export default function ContentPage() {
                             <p className="text-white font-medium">{agent.successRate}%</p>
                             <p className="text-white/70 text-xs">success</p>
                           </div>
-                          <Switch checked={agent.enabled} className="data-[state=checked]:bg-green-500" />
+                          <Switch checked={agent.enabled} className="data-[state=checked]:bg-blue-500" />
                         </div>
                       </div>
                     ))}
                     <Button
                       variant="outline"
-                      className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all"
+                      className="w-full btn-outline hover-lift btn-animated"
                     >
                       <Settings className="mr-2 h-4 w-4" />
                       Configure Agents
@@ -442,7 +443,7 @@ export default function ContentPage() {
 
               {/* Recent Calls */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-                <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+                <Card className="card-dark hover-glow text-white">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <div>
@@ -453,7 +454,7 @@ export default function ContentPage() {
                       </div>
                       <Button
                         variant="outline"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all"
+                        className="btn-outline hover-lift btn-animated"
                       >
                         View All
                       </Button>
@@ -461,14 +462,14 @@ export default function ContentPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {recentCalls.map((call) => (
-                      <div key={call.id} className="p-4 bg-white/10 border border-white/20 rounded-lg">
+                      <div key={call.id} className="p-4 bg-slate-800/50 border border-slate-600/30 rounded-lg hover:bg-slate-700/50 transition-all hover-lift">
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex items-center space-x-2">
-                            <div className="p-1 bg-green-500/20 rounded">
+                            <div className="p-1 bg-blue-500/20 rounded border border-blue-500/30">
                               {call.type === "inbound" ? (
-                                <PhoneCall className="h-4 w-4 text-green-400" />
+                                <PhoneCall className="h-4 w-4 text-blue-400" />
                               ) : (
-                                <Phone className="h-4 w-4 text-blue-400" />
+                                <Phone className="h-4 w-4 text-green-400" />
                               )}
                             </div>
                             <div>

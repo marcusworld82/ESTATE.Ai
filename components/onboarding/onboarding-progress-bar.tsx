@@ -36,10 +36,10 @@ export function OnboardingProgressBar({ currentStep, totalSteps }: OnboardingPro
                     w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300
                     ${
                       isCompleted
-                        ? "bg-emerald-500 text-white"
+                        ? "bg-blue-500 text-white glow-animation"
                         : isCurrent
-                          ? "bg-black text-white ring-4 ring-black/20"
-                          : "bg-gray-200 text-gray-500"
+                          ? "bg-blue-600 text-white ring-4 ring-blue-600/20 glow-animation"
+                          : "bg-slate-700 text-slate-400 border border-slate-600"
                     }
                   `}
                 >
@@ -50,12 +50,12 @@ export function OnboardingProgressBar({ currentStep, totalSteps }: OnboardingPro
                 <div className="mt-2 text-center">
                   <div
                     className={`text-sm font-medium ${
-                      isCurrent ? "text-black" : isCompleted ? "text-emerald-600" : "text-gray-500"
+                      isCurrent ? "text-white" : isCompleted ? "text-blue-400" : "text-slate-400"
                     }`}
                   >
                     {step.label}
                   </div>
-                  <div className="text-xs text-gray-400 mt-1">{step.description}</div>
+                  <div className="text-xs text-slate-400 mt-1">{step.description}</div>
                 </div>
               </div>
 
@@ -63,14 +63,14 @@ export function OnboardingProgressBar({ currentStep, totalSteps }: OnboardingPro
               {index < steps.length - 1 && (
                 <div className="flex-1 mx-4 mb-8">
                   <div className="relative">
-                    <div className="h-0.5 bg-gray-200 w-full" />
+                    <div className="h-0.5 bg-slate-600 w-full" />
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{
                         width: isCompleted ? "100%" : isCurrent ? "50%" : "0%",
                       }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="absolute top-0 h-0.5 bg-emerald-500"
+                      className="absolute top-0 h-0.5 bg-blue-500"
                     />
                   </div>
                 </div>
@@ -85,12 +85,12 @@ export function OnboardingProgressBar({ currentStep, totalSteps }: OnboardingPro
         <div className="text-sm text-gray-600 mb-2">
           Step {currentStep} of {totalSteps}
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-slate-700 rounded-full h-2">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
             transition={{ duration: 0.5 }}
-            className="bg-emerald-500 h-2 rounded-full"
+            className="bg-blue-500 h-2 rounded-full"
           />
         </div>
       </div>

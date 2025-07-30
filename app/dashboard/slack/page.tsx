@@ -111,18 +111,18 @@ export default function SlackPage() {
   }
 
   return (
-    <div className="h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 flex">
+    <div className="h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex">
       {/* Sidebar */}
-      <div className="w-80 bg-black/20 backdrop-blur-xl border-r border-white/20 flex flex-col">
+      <div className="w-80 bg-slate-900/80 backdrop-blur-xl border-r border-slate-600/30 flex flex-col">
         {/* Workspace Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-6 border-b border-white/20"
+          className="p-6 border-b border-slate-600/30 slide-in-left"
         >
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center">
-              <span className="text-black font-bold text-lg">E</span>
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center glow-animation">
+              <span className="text-white font-bold text-lg">E</span>
             </div>
             <div>
               <h2 className="font-bold text-white text-lg">Estate.AI Workspace</h2>
@@ -136,13 +136,13 @@ export default function SlackPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="p-4"
+          className="p-4 slide-in-left"
         >
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/60" />
             <Input
               placeholder="Search channels..."
-              className="pl-10 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 backdrop-blur-sm"
+              className="pl-10 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 backdrop-blur-sm input-focus"
             />
           </div>
         </motion.div>
@@ -153,11 +153,11 @@ export default function SlackPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="px-4 pb-4"
+            className="px-4 pb-4 slide-in-left"
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-semibold text-white uppercase tracking-wide">Channels</h3>
-              <Button variant="ghost" size="sm" className="h-6 w-6 p-0 text-white hover:bg-white/10">
+              <Button variant="ghost" size="sm" className="h-6 w-6 p-0 text-white hover:bg-slate-700/50 btn-animated">
                 <Plus className="h-3 w-3" />
               </Button>
             </div>
@@ -167,10 +167,10 @@ export default function SlackPage() {
                 <button
                   key={channel.id}
                   onClick={() => setSelectedChannel(channel.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all hover:scale-105 ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all hover:scale-105 btn-animated hover-lift sidebar-item ${
                     selectedChannel === channel.id
-                      ? "bg-green-500 text-black font-medium"
-                      : "text-white hover:bg-white/10"
+                      ? "bg-blue-600 text-white font-medium active"
+                      : "text-white hover:bg-slate-700/50"
                   }`}
                 >
                   <div className="flex items-center space-x-2">
@@ -189,11 +189,11 @@ export default function SlackPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="px-4 pb-4"
+            className="px-4 pb-4 slide-in-left"
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-semibold text-white uppercase tracking-wide">Direct Messages</h3>
-              <Button variant="ghost" size="sm" className="h-6 w-6 p-0 text-white hover:bg-white/10">
+              <Button variant="ghost" size="sm" className="h-6 w-6 p-0 text-white hover:bg-slate-700/50 btn-animated">
                 <Plus className="h-3 w-3" />
               </Button>
             </div>
@@ -203,12 +203,12 @@ export default function SlackPage() {
                 <button
                   key={dm.id}
                   onClick={() => setSelectedChannel(dm.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all hover:scale-105 ${
-                    selectedChannel === dm.id ? "bg-green-500 text-black font-medium" : "text-white hover:bg-white/10"
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all hover:scale-105 btn-animated hover-lift sidebar-item ${
+                    selectedChannel === dm.id ? "bg-blue-600 text-white font-medium active" : "text-white hover:bg-slate-700/50"
                   }`}
                 >
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                    <div className="w-2 h-2 bg-blue-500 rounded-full glow-animation" />
                     <span>{dm.name}</span>
                   </div>
                   {dm.unread > 0 && (
@@ -225,21 +225,21 @@ export default function SlackPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="p-4 border-t border-white/20"
+          className="p-4 border-t border-slate-600/30 slide-in-up"
         >
           <div className="flex items-center space-x-3">
-            <Avatar className="h-10 w-10 border-2 border-green-500/30">
+            <Avatar className="h-10 w-10 border-2 border-blue-500/30 glow-animation">
               <AvatarImage src="/placeholder.svg" />
-              <AvatarFallback className="bg-green-500 text-black font-semibold">SJ</AvatarFallback>
+              <AvatarFallback className="bg-blue-600 text-white font-semibold">SJ</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-white truncate">Sarah Johnson</p>
-              <p className="text-xs text-green-400 flex items-center">
-                <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
+              <p className="text-xs text-blue-400 flex items-center">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mr-1 glow-animation"></span>
                 Active
               </p>
             </div>
-            <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-white/10">
+            <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-slate-700/50 btn-animated">
               <Settings className="h-4 w-4" />
             </Button>
           </div>
@@ -247,16 +247,16 @@ export default function SlackPage() {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col bg-black/20 backdrop-blur-xl">
+      <div className="flex-1 flex flex-col bg-slate-900/50 backdrop-blur-xl">
         {/* Channel Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-6 border-b border-white/20"
+          className="p-6 border-b border-slate-600/30 slide-in-right"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Hash className="h-6 w-6 text-green-500" />
+              <Hash className="h-6 w-6 text-blue-500 glow-animation" />
               <h1 className="text-2xl font-bold text-white">
                 {channels.find((c) => c.id === selectedChannel)?.name || selectedChannel}
               </h1>
@@ -268,16 +268,16 @@ export default function SlackPage() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 transition-all">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-slate-700/50 transition-all btn-animated">
                 <Star className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 transition-all">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-slate-700/50 transition-all btn-animated">
                 <Bell className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 transition-all">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-slate-700/50 transition-all btn-animated">
                 <UserPlus className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 transition-all">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-slate-700/50 transition-all btn-animated">
                 <Settings className="h-4 w-4" />
               </Button>
             </div>
@@ -292,14 +292,14 @@ export default function SlackPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group hover:bg-white/5 p-4 rounded-lg transition-all"
+              className="group hover:bg-slate-800/30 p-4 rounded-lg transition-all hover-lift scale-in"
             >
               <div className="flex items-start space-x-4">
-                <Avatar className="h-10 w-10 flex-shrink-0 border-2 border-green-500/30">
+                <Avatar className="h-10 w-10 flex-shrink-0 border-2 border-blue-500/30">
                   {message.avatar?.startsWith("http") ? (
                     <AvatarImage src={message.avatar || "/placeholder.svg"} />
                   ) : (
-                    <AvatarFallback className="bg-green-500 text-black font-semibold">
+                    <AvatarFallback className="bg-blue-600 text-white font-semibold">
                       {message.avatar || message.user.charAt(0)}
                     </AvatarFallback>
                   )}
@@ -318,7 +318,7 @@ export default function SlackPage() {
                       {message.reactions.map((reaction, idx) => (
                         <button
                           key={idx}
-                          className="flex items-center space-x-1 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs hover:bg-white/20 transition-all"
+                          className="flex items-center space-x-1 px-3 py-1 bg-slate-700/50 border border-slate-600/30 rounded-full text-xs hover:bg-slate-600/50 transition-all btn-animated"
                         >
                           <span>{reaction.emoji}</span>
                           <span className="text-white font-medium">{reaction.count}</span>
@@ -328,14 +328,14 @@ export default function SlackPage() {
                   )}
 
                   {message.replies && (
-                    <button className="text-xs text-green-400 hover:text-green-300 mt-2 font-medium">
+                    <button className="text-xs text-blue-400 hover:text-blue-300 mt-2 font-medium btn-animated">
                       {message.replies} replies
                     </button>
                   )}
                 </div>
 
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-slate-700/50 btn-animated">
                     <MoreHorizontal className="h-4 w-4" />
                   </Button>
                 </div>
@@ -348,7 +348,7 @@ export default function SlackPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-6 border-t border-white/20"
+          className="p-6 border-t border-slate-600/30 slide-in-up"
         >
           <div className="flex items-end space-x-3">
             <div className="flex-1">
@@ -358,13 +358,13 @@ export default function SlackPage() {
                   value={messageInput}
                   onChange={(e) => setMessageInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  className="bg-white/10 border-white/20 text-white placeholder-white/50 pr-20 h-12 focus:border-green-400 backdrop-blur-sm"
+                  className="bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 pr-20 h-12 focus:border-blue-400 backdrop-blur-sm input-focus"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-slate-700/50 btn-animated">
                     <Paperclip className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-white hover:bg-slate-700/50 btn-animated">
                     <Smile className="h-4 w-4" />
                   </Button>
                 </div>
@@ -373,7 +373,7 @@ export default function SlackPage() {
             <Button
               onClick={handleSendMessage}
               disabled={!messageInput.trim()}
-              className="bg-green-500 hover:bg-green-600 text-black font-semibold h-12 px-6 transition-all hover:scale-105"
+              className="btn-primary btn-ripple hover-lift h-12 px-6"
             >
               <Send className="h-4 w-4" />
             </Button>

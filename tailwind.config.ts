@@ -13,39 +13,39 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			background: '222.2 84% 4.9%',
+  			foreground: '210 40% 98%',
   			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				DEFAULT: '222.2 84% 4.9%',
+  				foreground: '210 40% 98%'
   			},
   			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
+  				DEFAULT: '222.2 84% 4.9%',
+  				foreground: '210 40% 98%'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				DEFAULT: '217.2 91.2% 59.8%',
+  				foreground: '222.2 84% 4.9%'
   			},
   			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				DEFAULT: '217.2 32.6% 17.5%',
+  				foreground: '210 40% 98%'
   			},
   			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
+  				DEFAULT: '217.2 32.6% 17.5%',
+  				foreground: '215 20.2% 65.1%'
   			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
+  				DEFAULT: '217.2 32.6% 17.5%',
+  				foreground: '210 40% 98%'
   			},
   			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
+  				DEFAULT: '0 62.8% 30.6%',
+  				foreground: '210 40% 98%'
   			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
+  			border: '217.2 32.6% 17.5%',
+  			input: '217.2 32.6% 17.5%',
+  			ring: '224.3 76.3% 48%',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',
@@ -54,14 +54,14 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			},
   			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
-  				primary: 'hsl(var(--sidebar-primary))',
-  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-  				accent: 'hsl(var(--sidebar-accent))',
-  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-  				border: 'hsl(var(--sidebar-border))',
-  				ring: 'hsl(var(--sidebar-ring))'
+  				DEFAULT: '222.2 84% 4.9%',
+  				foreground: '210 40% 98%',
+  				primary: '217.2 91.2% 59.8%',
+  				'primary-foreground': '222.2 84% 4.9%',
+  				accent: '217.2 32.6% 17.5%',
+  				'accent-foreground': '210 40% 98%',
+  				border: '217.2 32.6% 17.5%',
+  				ring: '224.3 76.3% 48%'
   			}
   		},
   		borderRadius: {

@@ -29,47 +29,47 @@ export default function SettingsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Page Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center slide-in-up">
           <h1 className="text-4xl font-bold text-white mb-2">Settings</h1>
           <p className="text-white/80">Manage your Estate.AI preferences and configurations</p>
         </motion.div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 bg-black/20 backdrop-blur-xl border border-white/20 p-2 mb-8">
+          <TabsList className="grid w-full grid-cols-5 bg-slate-800/50 backdrop-blur-xl border border-slate-600/30 p-2 mb-8">
             <TabsTrigger
               value="profile"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               <User className="mr-2 h-4 w-4" />
               Profile
             </TabsTrigger>
             <TabsTrigger
               value="notifications"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               <Bell className="mr-2 h-4 w-4" />
               Notifications
             </TabsTrigger>
             <TabsTrigger
               value="ai"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               <Brain className="mr-2 h-4 w-4" />
               AI Settings
             </TabsTrigger>
             <TabsTrigger
               value="integrations"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               <Link className="mr-2 h-4 w-4" />
               Integrations
             </TabsTrigger>
             <TabsTrigger
               value="security"
-              className="text-white data-[state=active]:bg-green-500 data-[state=active]:text-black font-medium transition-all"
+              className="text-white data-[state=active]:bg-blue-600 data-[state=active]:text-white font-medium transition-all hover-lift btn-animated"
             >
               <Shield className="mr-2 h-4 w-4" />
               Security
@@ -78,7 +78,7 @@ export default function SettingsPage() {
 
           <TabsContent value="profile" className="space-y-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+              <Card className="card-dark hover-glow text-white">
                 <CardHeader>
                   <CardTitle className="text-xl text-white">Profile Information</CardTitle>
                   <CardDescription className="text-white/70">
@@ -94,7 +94,7 @@ export default function SettingsPage() {
                       <Input
                         id="firstName"
                         defaultValue="Sarah"
-                        className="mt-2 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20"
+                        className="mt-2 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 input-focus"
                       />
                     </div>
                     <div>
@@ -104,7 +104,7 @@ export default function SettingsPage() {
                       <Input
                         id="lastName"
                         defaultValue="Johnson"
-                        className="mt-2 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20"
+                        className="mt-2 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 input-focus"
                       />
                     </div>
                   </div>
@@ -117,7 +117,7 @@ export default function SettingsPage() {
                       id="email"
                       type="email"
                       defaultValue="sarah@johnsonrealestate.com"
-                      className="mt-2 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20"
+                      className="mt-2 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 input-focus"
                     />
                   </div>
 
@@ -128,7 +128,7 @@ export default function SettingsPage() {
                     <Input
                       id="phone"
                       defaultValue="+1 (555) 123-4567"
-                      className="mt-2 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20"
+                      className="mt-2 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 input-focus"
                     />
                   </div>
 
@@ -139,7 +139,7 @@ export default function SettingsPage() {
                     <Input
                       id="company"
                       defaultValue="Johnson Real Estate"
-                      className="mt-2 bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-green-400 focus:ring-green-400/20"
+                      className="mt-2 bg-slate-800/50 border-slate-600/30 text-white placeholder-white/50 focus:border-blue-400 focus:ring-blue-400/20 input-focus"
                     />
                   </div>
 
@@ -148,27 +148,27 @@ export default function SettingsPage() {
                       Timezone
                     </Label>
                     <Select defaultValue="est">
-                      <SelectTrigger className="mt-2 bg-white/10 border-white/20 text-white focus:border-green-400">
+                      <SelectTrigger className="mt-2 bg-slate-800/50 border-slate-600/30 text-white focus:border-blue-400 input-focus">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-black/90 backdrop-blur-xl border-white/20">
-                        <SelectItem value="pst" className="text-white focus:bg-white/10">
+                      <SelectContent className="bg-slate-900/90 backdrop-blur-xl border-slate-600/30">
+                        <SelectItem value="pst" className="text-white focus:bg-slate-700/50">
                           Pacific Standard Time
                         </SelectItem>
-                        <SelectItem value="mst" className="text-white focus:bg-white/10">
+                        <SelectItem value="mst" className="text-white focus:bg-slate-700/50">
                           Mountain Standard Time
                         </SelectItem>
-                        <SelectItem value="cst" className="text-white focus:bg-white/10">
+                        <SelectItem value="cst" className="text-white focus:bg-slate-700/50">
                           Central Standard Time
                         </SelectItem>
-                        <SelectItem value="est" className="text-white focus:bg-white/10">
+                        <SelectItem value="est" className="text-white focus:bg-slate-700/50">
                           Eastern Standard Time
                         </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <Button className="bg-green-500 hover:bg-green-600 text-black font-semibold transition-all hover:scale-105">
+                  <Button className="btn-primary btn-ripple hover-lift">
                     <Save className="mr-2 h-4 w-4" />
                     Save Changes
                   </Button>

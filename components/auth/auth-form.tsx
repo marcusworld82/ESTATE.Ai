@@ -73,12 +73,12 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-      <Card className="w-full max-w-md mx-auto shadow-lg">
+      <Card className="w-full max-w-md mx-auto shadow-lg bg-slate-800/80 backdrop-blur-xl border-slate-600/30 card-hover">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-montserrat font-bold">
+          <CardTitle className="text-2xl font-montserrat font-bold text-white">
             {mode === "signup" ? "Create Account" : "Welcome Back"}
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-slate-300">
             {mode === "signup" ? "Start closing deals 90% faster today" : "Sign in to your Estate.AI dashboard"}
           </CardDescription>
         </CardHeader>
@@ -87,7 +87,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === "signup" && (
               <div className="space-y-2">
-                <Label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="name" className="block text-sm font-medium text-white">
                   Full Name
                 </Label>
                 <Input
@@ -97,15 +97,15 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                   onChange={(e) => handleInputChange("name", e.target.value)}
                   className={`border border-gray-300 rounded p-2 focus:ring-emerald-500 ${
                     errors.name ? "border-red-500" : ""
-                  }`}
+                  } bg-slate-700/50 border-slate-600/30 text-white placeholder-slate-400 focus:border-blue-400 input-focus`}
                   placeholder="Enter your full name"
                 />
-                {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
+                {errors.name && <p className="text-sm text-red-400">{errors.name}</p>}
               </div>
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <Label htmlFor="email" className="block text-sm font-medium text-white">
                 Email Address
               </Label>
               <Input
@@ -115,14 +115,14 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 className={`border border-gray-300 rounded p-2 focus:ring-emerald-500 ${
                   errors.email ? "border-red-500" : ""
-                }`}
+                } bg-slate-700/50 border-slate-600/30 text-white placeholder-slate-400 focus:border-blue-400 input-focus`}
                 placeholder="Enter your email"
               />
-              {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
+              {errors.email && <p className="text-sm text-red-400">{errors.email}</p>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <Label htmlFor="password" className="block text-sm font-medium text-white">
                 Password
               </Label>
               <div className="relative">
@@ -133,21 +133,21 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                   onChange={(e) => handleInputChange("password", e.target.value)}
                   className={`border border-gray-300 rounded p-2 pr-10 focus:ring-emerald-500 ${
                     errors.password ? "border-red-500" : ""
-                  }`}
+                  } bg-slate-700/50 border-slate-600/30 text-white placeholder-slate-400 focus:border-blue-400 input-focus`}
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-200 btn-animated"
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
-              {errors.password && <p className="text-sm text-red-600">{errors.password}</p>}
+              {errors.password && <p className="text-sm text-red-400">{errors.password}</p>}
             </div>
 
-            <Button type="submit" disabled={isLoading} className="w-full btn-primary">
+            <Button type="submit" disabled={isLoading} className="w-full btn-primary btn-ripple hover-lift">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

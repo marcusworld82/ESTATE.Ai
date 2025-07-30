@@ -28,15 +28,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-6">
         {/* Logo */}
-        <div className="text-center">
+        <div className="text-center slide-in-up">
           <Link href="/" className="inline-flex items-center space-x-2">
-            <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center glow-animation">
               <span className="text-white font-bold">E</span>
             </div>
-            <span className="text-2xl font-montserrat font-bold">Estate.AI</span>
+            <span className="text-2xl font-montserrat font-bold text-white">Estate.AI</span>
           </Link>
         </div>
 
@@ -46,10 +46,10 @@ export default function LoginPage() {
         {/* Divider */}
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300" />
+            <div className="w-full border-t border-slate-600" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            <span className="px-2 bg-slate-800 text-slate-300">Or continue with</span>
           </div>
         </div>
 
@@ -58,9 +58,9 @@ export default function LoginPage() {
 
         {/* Signup Link */}
         <div className="text-center">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-slate-300">
             Don't have an account?{" "}
-            <Link href="/signup" className="font-medium text-emerald-600 hover:text-emerald-500">
+            <Link href="/signup" className="font-medium text-blue-400 hover:text-blue-300 transition-colors">
               Sign up
             </Link>
           </p>

@@ -180,13 +180,13 @@ export default function AIAgentsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between"
+          className="flex items-center justify-between slide-in-up"
         >
           <div>
             <h1 className="text-4xl font-bold text-white mb-2">AI Agents</h1>
@@ -195,12 +195,12 @@ export default function AIAgentsPage() {
           <div className="flex items-center space-x-3">
             <Button
               variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm transition-all"
+              className="btn-outline hover-lift btn-animated"
             >
               <Settings className="mr-2 h-4 w-4" />
               Agent Settings
             </Button>
-            <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white font-semibold transition-all hover:scale-105">
+            <Button className="btn-primary btn-ripple hover-lift">
               <Bot className="mr-2 h-4 w-4" />
               Deploy New Agent
             </Button>
@@ -212,16 +212,16 @@ export default function AIAgentsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex flex-wrap gap-3"
+          className="flex flex-wrap gap-3 slide-in-left"
         >
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all hover:scale-105 ${
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all hover:scale-105 btn-animated hover-lift ${
                 selectedCategory === category.id
-                  ? "bg-green-500 text-black"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+                  ? "bg-blue-600 text-white shadow-lg"
+                  : "bg-slate-800/50 text-white hover:bg-slate-700/70 backdrop-blur-sm border border-slate-600/30"
               }`}
             >
               {category.name} ({category.count})
@@ -232,7 +232,7 @@ export default function AIAgentsPage() {
         {/* Performance Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+            <Card className="card-dark hover-glow card-hover text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -241,14 +241,14 @@ export default function AIAgentsPage() {
                       {aiAgents.filter((a) => a.status === "active").length}
                     </p>
                   </div>
-                  <Bot className="h-8 w-8 text-green-400" />
+                  <Bot className="h-8 w-8 text-blue-400 float-animation" />
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+            <Card className="card-dark hover-glow card-hover text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -257,14 +257,14 @@ export default function AIAgentsPage() {
                       {Math.round(aiAgents.reduce((acc, agent) => acc + agent.successRate, 0) / aiAgents.length)}%
                     </p>
                   </div>
-                  <BarChart3 className="h-8 w-8 text-blue-400" />
+                  <BarChart3 className="h-8 w-8 text-green-400 float-animation" />
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-            <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+            <Card className="card-dark hover-glow card-hover text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -273,14 +273,14 @@ export default function AIAgentsPage() {
                       {Math.round(aiAgents.reduce((acc, agent) => acc + agent.usage, 0) / aiAgents.length)}%
                     </p>
                   </div>
-                  <Zap className="h-8 w-8 text-purple-400" />
+                  <Zap className="h-8 w-8 text-purple-400 float-animation" />
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-            <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white">
+            <Card className="card-dark hover-glow card-hover text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -289,7 +289,7 @@ export default function AIAgentsPage() {
                       {aiAgents.filter((a) => a.status === "processing").length}
                     </p>
                   </div>
-                  <RotateCcw className="h-8 w-8 text-yellow-400" />
+                  <RotateCcw className="h-8 w-8 text-yellow-400 animate-spin" />
                 </div>
               </CardContent>
             </Card>
@@ -304,12 +304,13 @@ export default function AIAgentsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 + index * 0.1 }}
+              className="scale-in"
             >
-              <Card className="bg-black/20 backdrop-blur-xl border border-white/20 text-white hover:bg-black/30 transition-all h-full">
+              <Card className="card-dark hover-glow card-hover text-white h-full">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-green-500/20 rounded-lg">{agent.icon}</div>
+                      <div className="p-2 bg-blue-500/20 rounded-lg border border-blue-500/30 glow-animation">{agent.icon}</div>
                       <div>
                         <CardTitle className="text-lg text-white">{agent.name}</CardTitle>
                         <Badge variant="outline" className={getStatusColor(agent.status)}>
@@ -348,7 +349,7 @@ export default function AIAgentsPage() {
                     <p className="text-white text-sm font-medium mb-2">Capabilities</p>
                     <div className="flex flex-wrap gap-1">
                       {agent.capabilities.map((capability, index) => (
-                        <Badge key={index} variant="outline" className="bg-white/10 text-white border-white/20 text-xs">
+                        <Badge key={index} variant="outline" className="bg-slate-700/50 text-white border-slate-600/30 text-xs hover:bg-slate-600/50 transition-all">
                           {capability}
                         </Badge>
                       ))}
@@ -358,7 +359,7 @@ export default function AIAgentsPage() {
                   {/* Actions */}
                   <div className="flex space-x-2 pt-2">
                     <Button
-                      className="flex-1 bg-green-500 hover:bg-green-600 text-black font-semibold transition-all hover:scale-105"
+                      className="flex-1 btn-primary btn-ripple hover-lift"
                       disabled={agent.status === "processing"}
                     >
                       <Play className="mr-2 h-4 w-4" />
@@ -367,7 +368,7 @@ export default function AIAgentsPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all"
+                      className="btn-outline hover-lift btn-animated"
                     >
                       <Settings className="h-4 w-4" />
                     </Button>
