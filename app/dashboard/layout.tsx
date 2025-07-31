@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { SidebarNav } from "@/components/dashboard/sidebar-nav"
 import { TopBar } from "@/components/dashboard/top-bar"
 
@@ -42,6 +42,24 @@ export default function DashboardLayout({
     console.log("Profile clicked")
   }
 
+  // Add scroll animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view")
+          }
+        })
+      },
+      { threshold: 0.1 },
+    )
+
+    const elements = document.querySelectorAll(".scroll-animate")
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="h-screen flex">
