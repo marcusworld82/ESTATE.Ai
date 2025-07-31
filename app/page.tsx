@@ -11,39 +11,39 @@ export default function HomePage() {
 
   const features = [
     {
-      icon: <Brain className="h-8 w-8 sidebar-icon-blue" />,
+      icon: <Brain className="h-8 w-8 text-blue-400" />,
       title: "AI-Powered Analysis",
       description: "Advanced machine learning algorithms analyze your real estate documents and market data",
     },
     {
-      icon: <BarChart3 className="h-8 w-8 sidebar-icon-green" />,
+      icon: <BarChart3 className="h-8 w-8 text-emerald-400" />,
       title: "Portfolio Analytics",
       description: "Comprehensive portfolio tracking with real-time performance metrics and insights",
     },
     {
-      icon: <FileText className="h-8 w-8 sidebar-icon-purple" />,
+      icon: <FileText className="h-8 w-8 text-purple-400" />,
       title: "Document Intelligence",
       description: "Automated document review and red flag detection for faster due diligence",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 sidebar-icon-orange" />,
+      icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
       title: "Market Insights",
       description: "Real-time market analysis and trend predictions to optimize your investments",
     },
     {
-      icon: <Users className="h-8 w-8 sidebar-icon-pink" />,
+      icon: <Users className="h-8 w-8 text-pink-400" />,
       title: "Team Collaboration",
       description: "Seamless collaboration tools for real estate teams and stakeholders",
     },
     {
-      icon: <Zap className="h-8 w-8 sidebar-icon-yellow" />,
+      icon: <Zap className="h-8 w-8 text-yellow-400" />,
       title: "Automation",
       description: "Automate repetitive tasks and streamline your real estate workflow",
     },
   ]
 
   return (
-    <div className="min-h-screen font-montserrat bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
+    <div className="min-h-screen font-montserrat bg-dark-gradient">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -51,10 +51,10 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Estate.AI
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-slate-300 max-w-3xl mx-auto">
               Close Deals 90% Faster with AI-Powered Real Estate Intelligence
             </p>
-            <p className="text-lg mb-12 text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto">
               Transform your real estate business with advanced AI analytics, automated document review, and intelligent
               market insights.
             </p>
@@ -80,7 +80,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 scroll-animate slide-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Powerful Features</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               Everything you need to analyze, manage, and optimize your real estate investments
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function HomePage() {
                   <CardTitle className="text-xl font-semibold text-white">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">{feature.description}</CardDescription>
+                  <CardDescription className="text-slate-300">{feature.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -113,7 +113,7 @@ export default function HomePage() {
               <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                 Ready to Transform Your Real Estate Business?
               </h3>
-              <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
                 Join thousands of real estate professionals who are already using Estate.AI to close deals faster and
                 make smarter investments.
               </p>
